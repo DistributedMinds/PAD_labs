@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker", "Broker\Broker.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receiver", "Receiver\Receiver.csproj", "{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Message_Agent.Common", "Message_Agent.Common\Message_Agent.Common.csproj", "{9A3EB3BF-51AE-4E14-9FAF-ED245264E2C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A3EB3BF-51AE-4E14-9FAF-ED245264E2C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A3EB3BF-51AE-4E14-9FAF-ED245264E2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A3EB3BF-51AE-4E14-9FAF-ED245264E2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A3EB3BF-51AE-4E14-9FAF-ED245264E2C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
