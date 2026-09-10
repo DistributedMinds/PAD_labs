@@ -6,7 +6,7 @@ using Sender;
 Console.WriteLine("Sender");
 
 var senderSocket = new SenderSocket();
-senderSocket.Connect(Settings.BROCKER_IP, Settings.BROCKER_PORT);
+senderSocket.Connect(Settings.BROKER_IP, Settings.BROKER_PORT);
 
 if (senderSocket.IsConected)
 {

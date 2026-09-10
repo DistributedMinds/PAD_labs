@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.5-beta1" />
+    <ProjectReference Include="..\Message_Agent.Common\Message_Agent.Common.csproj" />
   </ItemGroup>
 
 </Project>
