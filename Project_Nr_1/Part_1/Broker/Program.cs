@@ -10,7 +10,7 @@ namespace Broker
             Console.WriteLine("Broker");
 
             BrokerSocket socket = new BrokerSocket();
-            socket.Start(Settings.BROCKER_IP, Settings.BROCKER_PORT);
+            socket.Start(Settings.BROKER_IP, Settings.BROKER_PORT);
 
             Console.ReadLine();
         }
