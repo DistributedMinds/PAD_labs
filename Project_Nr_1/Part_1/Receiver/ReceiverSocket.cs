@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Net.Sockets;
 using System.Net;
+using Message_Agent.Common;
 
 namespace Receiver
 {
@@ -17,7 +18,7 @@ namespace Receiver
 
         public void Connect(string ipAddress, int port)
         {
-            _socket.BeginConnect(new IPEndPoint( IPAdress.Parse(ipAddress), port), ConnectedCallback, null);
+            _socket.BeginConnect(new IPEndPoint( IPAddress.Parse(ipAddress), port), ConnectedCallback, null);
             Console.WriteLine("Waiting for a connection");
         }
 
