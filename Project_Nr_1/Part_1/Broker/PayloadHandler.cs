@@ -17,7 +17,7 @@ namespace Broker
             if (payloadString.StartsWith("subscribe#"))
             {
                 connectionInfo.Topic = payloadString.Split("subscribe#").LastOrDefault();
-                //adaugam conexiunea in storage
+               ConnectionsStorage.Add(connectionInfo);
             }
             else
             {
