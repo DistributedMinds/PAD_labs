@@ -13,36 +13,48 @@ namespace Broker
         private const int TIME_TO_SLEEP = 500;
         public void DoSendMessageWork()
         {
+            Logger.Info("Worker started.");
+
             while (true)
             {
-                while (!PayloadStorage.IsEmpty()) 
+                try
                 {
-                    var payload = PayloadStorage.GetNext();
-
-                    if (payload != null)
+                    while (!PayloadStorage.IsEmpty())
                     {
-                        var connections = ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
+                        var payload = PayloadStorage.GetNext();
 
-                        Logger.Info(
-    $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
-);
-
-                        foreach (var connection in connections)
+                        if (payload != null)
                         {
-                            var payloadString = JsonConvert.SerializeObject(payload);
-                            byte[] data = Encoding.UTF8.GetBytes(payloadString);
-
-                            connection.Socket.Send(data);
+                            var connections =
+                                ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
 
                             Logger.Info(
-        $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
-    );
+                                $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
+                            );
+
+                            foreach (var connection in connections)
+                            {
+                                var payloadString =
+                                    JsonConvert.SerializeObject(payload);
+
+                                byte[] data =
+                                    Encoding.UTF8.GetBytes(payloadString);
+
+                                connection.Socket.Send(data);
+
+                                Logger.Info(
+                                    $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
+                                );
+                            }
                         }
                     }
-
                 }
-                
-                Thread.Sleep(500);
+                catch (Exception e)
+                {
+                    Logger.Error($"Worker error: {e.Message}");
+                }
+
+                Thread.Sleep(TIME_TO_SLEEP);
             }
         }
     }
