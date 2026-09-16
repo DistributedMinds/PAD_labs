@@ -23,12 +23,20 @@ namespace Broker
                     {
                         var connections = ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
 
-                        foreach(var connection in connections)
+                        Logger.Info(
+    $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
+);
+
+                        foreach (var connection in connections)
                         {
                             var payloadString = JsonConvert.SerializeObject(payload);
                             byte[] data = Encoding.UTF8.GetBytes(payloadString);
 
                             connection.Socket.Send(data);
+
+                            Logger.Info(
+        $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
+    );
                         }
                     }
 
