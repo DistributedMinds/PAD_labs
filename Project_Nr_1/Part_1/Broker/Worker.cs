@@ -13,28 +13,48 @@ namespace Broker
         private const int TIME_TO_SLEEP = 500;
         public void DoSendMessageWork()
         {
+            Logger.Info("Worker started.");
+
             while (true)
             {
-                while (!PayloadStorage.IsEmpty()) 
+                try
                 {
-                    var payload = PayloadStorage.GetNext();
-
-                    if (payload != null)
+                    while (!PayloadStorage.IsEmpty())
                     {
-                        var connections = ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
+                        var payload = PayloadStorage.GetNext();
 
-                        foreach(var connection in connections)
+                        if (payload != null)
                         {
-                            var payloadString = JsonConvert.SerializeObject(payload);
-                            byte[] data = Encoding.UTF8.GetBytes(payloadString);
+                            var connections =
+                                ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
 
-                            connection.Socket.Send(data);
+                            Logger.Info(
+                                $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
+                            );
+
+                            foreach (var connection in connections)
+                            {
+                                var payloadString =
+                                    JsonConvert.SerializeObject(payload);
+
+                                byte[] data =
+                                    Encoding.UTF8.GetBytes(payloadString);
+
+                                connection.Socket.Send(data);
+
+                                Logger.Info(
+                                    $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
+                                );
+                            }
                         }
                     }
-
                 }
-                
-                Thread.Sleep(500);
+                catch (Exception e)
+                {
+                    Logger.Error($"Worker error: {e.Message}");
+                }
+
+                Thread.Sleep(TIME_TO_SLEEP);
             }
         }
     }

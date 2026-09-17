@@ -23,7 +23,10 @@ namespace Broker
         {
             lock (_locker)
             {
-                _connections.Add(connection);
+                if (!_connections.Any(x => x.Address == connection.Address))
+                {
+                    _connections.Add(connection);
+                }
             }
         }
         public static void Remove(string address)
@@ -38,7 +41,9 @@ namespace Broker
             List<ConnectionInfo> selectedConnections;
             lock (_locker)
             {
-                selectedConnections = _connections.Where(x => x.Topic == topic).ToList();
+                selectedConnections = _connections
+                   .Where(x => x.Topics.Contains(topic))
+                   .ToList();
             }
             return selectedConnections;
         }

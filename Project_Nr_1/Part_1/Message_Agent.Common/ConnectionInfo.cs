@@ -13,10 +13,11 @@ namespace Message_Agent.Common
         public byte[] Data { get; set; }
         public Socket Socket { get; set; }
         public string Address { get; set; }
-        public string Topic { get; set; }
+        public List<string> Topics { get; set; }
         public ConnectionInfo()
         {
             Data = new byte[BUFF_SIZE];
+            Topics = new List<string>();
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Message_Agent.Common;
-using System;
+using System.Collections.Generic;
 
 namespace Receiver
 {
@@ -7,19 +7,103 @@ namespace Receiver
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Receiver");
+            Console.WriteLine("========== RECEIVER ==========");
 
-            string topic;
-            Console.Write("Enter the topic: ");
-            topic = Console.ReadLine().ToLower();
+            var receiverSocket = new ReceiverSocket();
 
-            var receiverSocket = new ReceiverSocket(topic);
+            receiverSocket.Connect(
+                Settings.BROKER_IP,
+                Settings.BROKER_PORT
+            );
 
-            receiverSocket.Connect(Settings.BROKER_IP, Settings.BROKER_PORT);
+            bool running = true;
 
-            Console.WriteLine("Press any key to exit..");
-            Console.ReadLine();
+            while (running)
+            {
+                Console.WriteLine();
+                Console.WriteLine("========== MENU ==========");
+                Console.WriteLine("1. Subscribe to topic");
+                Console.WriteLine("2. View subscribed topics");
+                Console.WriteLine("3. View received messages");
+                Console.WriteLine("4. Exit");
+                Console.WriteLine("===========================");
+                Console.Write("Choose an option: ");
 
+                string option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        Console.Write("Enter topic: ");
+
+                        string topic = Console.ReadLine().ToLower();
+
+                        if (!string.IsNullOrWhiteSpace(topic))
+                        {
+                            receiverSocket.Subscribe(topic);
+                        }
+
+                        break;
+
+                    case "2":
+                        Console.WriteLine();
+                        Console.WriteLine("----- SUBSCRIBED TOPICS -----");
+
+                        var topics = receiverSocket.GetTopics();
+
+                        if (topics.Count == 0)
+                        {
+                            Console.WriteLine("No subscribed topics.");
+                        }
+                        else
+                        {
+                            foreach (string subscribedTopic in topics)
+                            {
+                                Console.WriteLine($"- {subscribedTopic}");
+                            }
+                        }
+
+                        Console.WriteLine("------------------------------");
+                        break;
+
+                    case "3":
+                        Console.WriteLine();
+                        Console.WriteLine("===== RECEIVED MESSAGES =====");
+
+                        var messages = PayloadHandler.GetMessages();
+
+                        if (messages.Count == 0)
+                        {
+                            Console.WriteLine("No messages received.");
+                        }
+                        else
+                        {
+                            foreach (var topicMessages in messages)
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine($"[{topicMessages.Key}]");
+
+                                foreach (string message in topicMessages.Value)
+                                {
+                                    Console.WriteLine($"- {message}");
+                                }
+                            }
+                        }
+
+                        Console.WriteLine("=============================");
+                        break;
+
+                    case "4":
+                        running = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid option.");
+                        break;
+                }
+            }
+
+            Console.WriteLine("Receiver closed.");
         }
     }
 }
