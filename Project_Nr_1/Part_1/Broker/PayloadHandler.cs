@@ -33,7 +33,7 @@ namespace Broker
             {
                 PayLoad payload = JsonConvert.DeserializeObject<PayLoad>(payloadString);
                 //adaugam in storage
-
+                PersistentStore.Add(payload);
                 PayloadStorage.Add(payload);
                 // Console.Write(payloadString);
 

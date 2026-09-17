@@ -1,16 +1,14 @@
-﻿
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Broker
 {
     class Worker
     {
         private const int TIME_TO_SLEEP = 500;
+
         public void DoSendMessageWork()
         {
             Logger.Info("Worker started.");
@@ -19,33 +17,43 @@ namespace Broker
             {
                 try
                 {
-                    while (!PayloadStorage.IsEmpty())
+                    var pendingPayloads = PersistentStore.LoadPending();
+
+                    foreach (var payload in pendingPayloads)
                     {
-                        var payload = PayloadStorage.GetNext();
+                        var connections = ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
 
-                        if (payload != null)
+                        if (connections.Count == 0)
                         {
-                            var connections =
-                                ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
+                            continue; // rămâne Pending, se reverifică la tick-ul următor
+                        }
 
-                            Logger.Info(
-                                $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
-                            );
+                        Logger.Info(
+                            $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
+                        );
 
-                            foreach (var connection in connections)
+                        bool allSucceeded = true;
+
+                        foreach (var connection in connections)
+                        {
+                            try
                             {
-                                var payloadString =
-                                    JsonConvert.SerializeObject(payload);
-
-                                byte[] data =
-                                    Encoding.UTF8.GetBytes(payloadString);
-
+                                var payloadString = JsonConvert.SerializeObject(payload);
+                                byte[] data = Encoding.UTF8.GetBytes(payloadString);
                                 connection.Socket.Send(data);
 
-                                Logger.Info(
-                                    $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
-                                );
+                                Logger.Info($"Message delivered to {connection.Address}. Topic: {payload.Topic}");
                             }
+                            catch (Exception e)
+                            {
+                                allSucceeded = false;
+                                Logger.Error($"Delivery failed to {connection.Address}: {e.Message}");
+                            }
+                        }
+
+                        if (allSucceeded)
+                        {
+                            PersistentStore.MarkDelivered(payload.Id);
                         }
                     }
                 }

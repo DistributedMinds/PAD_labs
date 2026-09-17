@@ -1,5 +1,6 @@
 ﻿using System;
 using Message_Agent.Common;
+using Microsoft.Data.Sqlite;
 
 namespace Broker 
 { 
@@ -10,7 +11,10 @@ namespace Broker
             Logger.Info("Broker started.");
             Console.WriteLine("Broker");
 
-
+            foreach (var pending in PersistentStore.LoadPending())
+            {
+                PayloadStorage.Add(pending);
+            }
             BrokerSocket socket = new BrokerSocket();
             socket.Start(Settings.BROKER_IP, Settings.BROKER_PORT);
 
