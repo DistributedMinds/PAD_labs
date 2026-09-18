@@ -29,7 +29,7 @@ namespace Receiver
         }
 
         
-        public bool Authenticate(string username, string password, bool isSignUp)
+        public (bool Success, string Message) Authenticate(string username, string password, bool isSignUp)
         {
             string command = isSignUp ? "signup" : "signin";
             var data = Encoding.UTF8.GetBytes($"{command}#{username}#{password}");
@@ -53,11 +53,12 @@ namespace Receiver
                 }
 
                 StartReceive();
-                return true;
+                return (true, "Authenticated successfully.");
             }
 
-            Console.WriteLine($"Authentication failed: {response}");
-            return false;
+            var failParts = response.Split('#');
+            string reason = failParts.Length > 1 ? failParts[1] : "unknown error";
+            return (false, reason);
         }
 
         public void Subscribe(string topic)

@@ -13,24 +13,38 @@ namespace Receiver
 
             receiverSocket.Connect(Settings.BROKER_IP, Settings.BROKER_PORT);
 
-            Console.Write("Sign up sau sign in? (1 = sign up, 2 = sign in): ");
-            string choice = Console.ReadLine();
+            bool authenticated = false;
 
-            Console.Write("Username: ");
-            string username = Console.ReadLine();
-
-            Console.Write("Password: ");
-            string password = Console.ReadLine();
-
-            bool authenticated = receiverSocket.Authenticate(username, password, isSignUp: choice == "1");
-
-            if (!authenticated)
+            while (!authenticated)
             {
-                Console.WriteLine("Could not authenticate. Exiting.");
-                return;
-            }
+                Console.WriteLine();
+                Console.Write("Sign up sau sign in? (1 = sign up, 2 = sign in): ");
+                string choice = Console.ReadLine();
 
-            Console.WriteLine("Authenticated successfully.");
+                if (choice != "1" && choice != "2")
+                {
+                    Console.WriteLine("Opțiune invalidă. Alege 1 sau 2.");
+                    continue;
+                }
+
+                Console.Write("Username: ");
+                string username = Console.ReadLine();
+
+                Console.Write("Password: ");
+                string password = Console.ReadLine();
+
+                var result = receiverSocket.Authenticate(username, password, isSignUp: choice == "1");
+
+                if (result.Success)
+                {
+                    authenticated = true;
+                    Console.WriteLine(result.Message);
+                }
+                else
+                {
+                    Console.WriteLine($"Autentificare eșuată: {result.Message}. Încearcă din nou.");
+                }
+            }
 
             bool running = true;
 
@@ -51,14 +65,12 @@ namespace Receiver
                 {
                     case "1":
                         Console.Write("Enter topic: ");
-
                         string topic = Console.ReadLine().ToLower();
 
                         if (!string.IsNullOrWhiteSpace(topic))
                         {
                             receiverSocket.Subscribe(topic);
                         }
-
                         break;
 
                     case "2":
