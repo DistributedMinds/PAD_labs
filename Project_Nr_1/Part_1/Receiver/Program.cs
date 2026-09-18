@@ -11,10 +11,26 @@ namespace Receiver
 
             var receiverSocket = new ReceiverSocket();
 
-            receiverSocket.Connect(
-                Settings.BROKER_IP,
-                Settings.BROKER_PORT
-            );
+            receiverSocket.Connect(Settings.BROKER_IP, Settings.BROKER_PORT);
+
+            Console.Write("Sign up sau sign in? (1 = sign up, 2 = sign in): ");
+            string choice = Console.ReadLine();
+
+            Console.Write("Username: ");
+            string username = Console.ReadLine();
+
+            Console.Write("Password: ");
+            string password = Console.ReadLine();
+
+            bool authenticated = receiverSocket.Authenticate(username, password, isSignUp: choice == "1");
+
+            if (!authenticated)
+            {
+                Console.WriteLine("Could not authenticate. Exiting.");
+                return;
+            }
+
+            Console.WriteLine("Authenticated successfully.");
 
             bool running = true;
 

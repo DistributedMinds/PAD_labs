@@ -1,15 +1,9 @@
 ﻿using Message_Agent.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Broker
 {
     static class ConnectionsStorage
     {
-
         private static List<ConnectionInfo> _connections;
         private static object _locker;
 
@@ -29,6 +23,7 @@ namespace Broker
                 }
             }
         }
+
         public static void Remove(string address)
         {
             lock (_locker)
@@ -36,17 +31,21 @@ namespace Broker
                 _connections.RemoveAll(x => x.Address == address);
             }
         }
+
         public static List<ConnectionInfo> GetConnectionsByTopic(string topic)
         {
-            List<ConnectionInfo> selectedConnections;
             lock (_locker)
             {
-                selectedConnections = _connections
-                   .Where(x => x.Topics.Contains(topic))
-                   .ToList();
+                return _connections.Where(x => x.Topics.Contains(topic)).ToList();
             }
-            return selectedConnections;
         }
 
+        public static List<ConnectionInfo> GetAllConnected()
+        {
+            lock (_locker)
+            {
+                return _connections.ToList();
+            }
+        }
     }
 }

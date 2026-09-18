@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Text;
-using System.Threading;
 
 namespace Broker
 {
@@ -17,24 +15,18 @@ namespace Broker
             {
                 try
                 {
-                    var pendingPayloads = PersistentStore.LoadPending();
+                    var connections = ConnectionsStorage.GetAllConnected();
 
-                    foreach (var payload in pendingPayloads)
+                    foreach (var connection in connections)
                     {
-                        var connections = ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
-
-                        if (connections.Count == 0)
+                        if (string.IsNullOrEmpty(connection.ClientId))
                         {
-                            continue; // rămâne Pending, se reverifică la tick-ul următor
+                            continue;
                         }
 
-                        Logger.Info(
-                            $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
-                        );
+                        var pending = PersistentStore.GetPendingDeliveries(connection.ClientId);
 
-                        bool allSucceeded = true;
-
-                        foreach (var connection in connections)
+                        foreach (var payload in pending)
                         {
                             try
                             {
@@ -42,18 +34,14 @@ namespace Broker
                                 byte[] data = Encoding.UTF8.GetBytes(payloadString);
                                 connection.Socket.Send(data);
 
-                                Logger.Info($"Message delivered to {connection.Address}. Topic: {payload.Topic}");
+                                PersistentStore.MarkDelivered(payload.Id, connection.ClientId);
+
+                                Logger.Info($"Delivered message {payload.Id} to {connection.ClientId}");
                             }
                             catch (Exception e)
                             {
-                                allSucceeded = false;
                                 Logger.Error($"Delivery failed to {connection.Address}: {e.Message}");
                             }
-                        }
-
-                        if (allSucceeded)
-                        {
-                            PersistentStore.MarkDelivered(payload.Id);
                         }
                     }
                 }
