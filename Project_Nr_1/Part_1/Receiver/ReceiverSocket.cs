@@ -24,26 +24,41 @@ namespace Receiver
 
         public void Connect(string ipAddress, int port)
         {
-            _socket.BeginConnect(
-                new IPEndPoint(IPAddress.Parse(ipAddress), port),
-                ConnectedCallback,
-                null
-            );
-
-            Console.WriteLine("Waiting for a connection");
+            _socket.Connect(new IPEndPoint(IPAddress.Parse(ipAddress), port));
+            Console.WriteLine("Receiver connected to broker");
         }
 
-        private void ConnectedCallback(IAsyncResult asyncResult)
+        
+        public (bool Success, string Message) Authenticate(string username, string password, bool isSignUp)
         {
-            if (_socket.Connected)
+            string command = isSignUp ? "signup" : "signin";
+            var data = Encoding.UTF8.GetBytes($"{command}#{username}#{password}");
+            _socket.Send(data);
+
+            byte[] buffer = new byte[1024];
+            int received = _socket.Receive(buffer);
+            string response = Encoding.UTF8.GetString(buffer, 0, received);
+
+            if (response.StartsWith("authOK"))
             {
-                Console.WriteLine("Receiver connected to broker");
+                var parts = response.Split('#');
+
+                if (parts.Length > 1 && !string.IsNullOrEmpty(parts[1]))
+                {
+                    foreach (var topic in parts[1].Split(','))
+                    {
+                        if (!_topics.Contains(topic))
+                            _topics.Add(topic);
+                    }
+                }
+
                 StartReceive();
+                return (true, "Authenticated successfully.");
             }
-            else
-            {
-                Console.WriteLine("Error: Receiver could not connect to broker");
-            }
+
+            var failParts = response.Split('#');
+            string reason = failParts.Length > 1 ? failParts[1] : "unknown error";
+            return (false, reason);
         }
 
         public void Subscribe(string topic)

@@ -1,15 +1,13 @@
-﻿using System;
-using Message_Agent.Common;
+﻿using Message_Agent.Common;
 
-namespace Broker 
-{ 
+namespace Broker
+{
     class Program
     {
         static void Main(string[] args)
         {
             Logger.Info("Broker started.");
             Console.WriteLine("Broker");
-
 
             BrokerSocket socket = new BrokerSocket();
             socket.Start(Settings.BROKER_IP, Settings.BROKER_PORT);

@@ -1,16 +1,12 @@
-﻿
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Broker
 {
     class Worker
     {
         private const int TIME_TO_SLEEP = 500;
+
         public void DoSendMessageWork()
         {
             Logger.Info("Worker started.");
@@ -19,32 +15,32 @@ namespace Broker
             {
                 try
                 {
-                    while (!PayloadStorage.IsEmpty())
+                    var connections = ConnectionsStorage.GetAllConnected();
+
+                    foreach (var connection in connections)
                     {
-                        var payload = PayloadStorage.GetNext();
-
-                        if (payload != null)
+                        if (string.IsNullOrEmpty(connection.ClientId))
                         {
-                            var connections =
-                                ConnectionsStorage.GetConnectionsByTopic(payload.Topic);
+                            continue;
+                        }
 
-                            Logger.Info(
-                                $"Routing message with topic '{payload.Topic}' to {connections.Count} receiver(s)."
-                            );
+                        var pending = PersistentStore.GetPendingDeliveries(connection.ClientId);
 
-                            foreach (var connection in connections)
+                        foreach (var payload in pending)
+                        {
+                            try
                             {
-                                var payloadString =
-                                    JsonConvert.SerializeObject(payload);
-
-                                byte[] data =
-                                    Encoding.UTF8.GetBytes(payloadString);
-
+                                var payloadString = JsonConvert.SerializeObject(payload);
+                                byte[] data = Encoding.UTF8.GetBytes(payloadString);
                                 connection.Socket.Send(data);
 
-                                Logger.Info(
-                                    $"Message delivered to {connection.Address}. Topic: {payload.Topic}"
-                                );
+                                PersistentStore.MarkDelivered(payload.Id, connection.ClientId);
+
+                                Logger.Info($"Delivered message {payload.Id} to {connection.ClientId}");
+                            }
+                            catch (Exception e)
+                            {
+                                Logger.Error($"Delivery failed to {connection.Address}: {e.Message}");
                             }
                         }
                     }

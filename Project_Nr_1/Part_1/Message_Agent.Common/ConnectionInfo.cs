@@ -13,6 +13,7 @@ namespace Message_Agent.Common
         public byte[] Data { get; set; }
         public Socket Socket { get; set; }
         public string Address { get; set; }
+        public string ClientId { get; set; }
         public List<string> Topics { get; set; }
         public ConnectionInfo()
         {
