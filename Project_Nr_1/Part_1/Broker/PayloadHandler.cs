@@ -1,6 +1,8 @@
 ﻿using Message_Agent.Common;
 using Newtonsoft.Json;
 using System.Text;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace Broker
 {
@@ -36,10 +38,57 @@ namespace Broker
             }
             else
             {
-                PayLoad payload = JsonConvert.DeserializeObject<PayLoad>(payloadString);
-                PersistentStore.AddMessageWithDeliveries(payload);
+                try
+                {
 
-                Logger.Info($"Message received from {connectionInfo.Address}. Topic: {payload.Topic}");
+                    PayLoad payload;
+                    string trimmedPayload = payloadString.TrimStart();
+                    string format;
+
+                    if (trimmedPayload.StartsWith("{"))
+                    {
+                        payload = JsonConvert.DeserializeObject<PayLoad>(trimmedPayload);
+                        format = "JSON";
+                    }
+                    else if (trimmedPayload.StartsWith("<"))
+                    {
+                        var serializer = new XmlSerializer(typeof(PayLoad));
+                        using var reader = new StringReader(trimmedPayload);
+                        payload = (PayLoad)serializer.Deserialize(reader);
+                        format = "XML";
+                    }
+                    else
+                    {
+                        Logger.Info($"Unknown payload format received from {connectionInfo.Address}");
+
+                        return;
+                    }
+
+                    if (payload == null)
+                    {
+                        Logger.Info($"Invalid payload received from {connectionInfo.Address}");
+                        return;
+                    }
+
+                    PersistentStore.AddMessageWithDeliveries(payload);
+                    Logger.Info($"Message received from {connectionInfo.Address}. Topic: {payload.Topic}. Format: {format}");
+                }
+                catch (JsonException jsonEx)
+                {
+                    Logger.Info($"JSON deserialization error from {connectionInfo.Address}: {jsonEx.Message}");
+                }
+                catch (InvalidOperationException xmlEx)
+                {
+                    Logger.Info($"XML deserialization error from {connectionInfo.Address}: {xmlEx.Message}");
+                }
+                catch (Exception ex)
+                {
+                    Logger.Info($"Unexpected error while processing payload from {connectionInfo.Address}: {ex.Message}");
+                }
+                //PayLoad payload = JsonConvert.DeserializeObject<PayLoad>(payloadString);
+                //PersistentStore.AddMessageWithDeliveries(payload);
+
+                //Logger.Info($"Message received from {connectionInfo.Address}. Topic: {payload.Topic}");
             }
         }
 
