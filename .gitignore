@@ -62,3 +62,7 @@ obj/
 
 # Persistent DataBase
 Data/
+
+# Python
+__pycache__/
+*.pyc
