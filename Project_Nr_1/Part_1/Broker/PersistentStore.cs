@@ -154,6 +154,18 @@ public class PersistentStore
             cmd.ExecuteNonQuery();
         }
     }
+    public static void RemoveSubscription(string clientId, string topic)
+    {
+        lock (_lock)
+        {
+            using var cmd = _connection.CreateCommand();
+            cmd.CommandText =
+                "DELETE FROM subscriptions WHERE ClientId = $clientId AND Topic = $topic;";
+            cmd.Parameters.AddWithValue("$clientId", clientId);
+            cmd.Parameters.AddWithValue("$topic", topic);
+            cmd.ExecuteNonQuery();
+        }
+    }
 
     // --- Mesaje + livrări ---
 

@@ -76,6 +76,21 @@ namespace Receiver
 
             Console.WriteLine($"Subscribed to: {topic}");
         }
+        public void Unsubscribe(string topic)
+        {
+            if (!_topics.Contains(topic))
+            {
+                Console.WriteLine($"Not subscribed to: {topic}");
+                return;
+            }
+
+            _topics.Remove(topic);
+
+            var data = Encoding.UTF8.GetBytes("unsubscribe#" + topic);
+            Send(data);
+
+            Console.WriteLine($"Unsubscribed from: {topic}");
+        }
 
         public List<string> GetTopics()
         {

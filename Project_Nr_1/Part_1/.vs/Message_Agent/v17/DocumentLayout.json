@@ -7,6 +7,22 @@
       "RelativeMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|solutionrelative:sender\\sendersocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|d:\\univer ion\\anul 4\\pad\\lab1\\project_nr_1\\part_1\\broker\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|solutionrelative:broker\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|d:\\univer ion\\anul 4\\pad\\lab1\\project_nr_1\\part_1\\broker\\payloadhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|solutionrelative:broker\\payloadhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}|Receiver\\Receiver.csproj|d:\\univer ion\\anul 4\\pad\\lab1\\project_nr_1\\part_1\\receiver\\receiversocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}|Receiver\\Receiver.csproj|solutionrelative:receiver\\receiversocket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}|Receiver\\Receiver.csproj|d:\\univer ion\\anul 4\\pad\\lab1\\project_nr_1\\part_1\\receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6CE9A37A-D9D8-4746-AE15-1214270E7C8F}|Receiver\\Receiver.csproj|solutionrelative:receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|d:\\univer ion\\anul 4\\pad\\lab1\\project_nr_1\\part_1\\sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|solutionrelative:sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,11 +34,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Receiver\\Program.cs",
+              "RelativeDocumentMoniker": "Receiver\\Program.cs",
+              "ToolTip": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Receiver\\Program.cs",
+              "RelativeToolTip": "Receiver\\Program.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAQwIQAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T12:21:28.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReceiverSocket.cs",
+              "DocumentMoniker": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Receiver\\ReceiverSocket.cs",
+              "RelativeDocumentMoniker": "Receiver\\ReceiverSocket.cs",
+              "ToolTip": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Receiver\\ReceiverSocket.cs",
+              "RelativeToolTip": "Receiver\\ReceiverSocket.cs",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAswFwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T12:20:10.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PayloadHandler.cs",
+              "DocumentMoniker": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
+              "RelativeDocumentMoniker": "Broker\\PayloadHandler.cs",
+              "ToolTip": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
+              "RelativeToolTip": "Broker\\PayloadHandler.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAowDQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T12:18:28.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersistentStore.cs",
+              "DocumentMoniker": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Broker\\PersistentStore.cs",
+              "RelativeDocumentMoniker": "Broker\\PersistentStore.cs",
+              "ToolTip": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Broker\\PersistentStore.cs",
+              "RelativeToolTip": "Broker\\PersistentStore.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAkwKcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-22T12:17:23.784Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -39,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Univer Ion\\anul 4\\PAD\\lab1\\Project_Nr_1\\Part_1\\Sender\\Program.cs",
               "RelativeDocumentMoniker": "Sender\\Program.cs",
@@ -47,8 +115,7 @@
               "RelativeToolTip": "Sender\\Program.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAkwC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-20T19:57:20.749Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-20T19:57:20.749Z"
             }
           ]
         },
