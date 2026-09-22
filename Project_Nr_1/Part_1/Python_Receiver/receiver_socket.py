@@ -54,6 +54,19 @@ class ReceiverSocket:
 
         print(f"Subscribed to: {topic}")
 
+    def unsubscribe(self, topic):
+        if topic not in self._topics:
+            print(f"Not subscribed to: {topic}")
+            return
+
+        self._topics.remove(topic)
+
+        data = f"unsubscribe#{topic}".encode("utf-8")
+
+        self.send(data)
+
+        print(f"Unsubscribed from: {topic}")
+
     def get_topics(self):
         return self._topics
 
