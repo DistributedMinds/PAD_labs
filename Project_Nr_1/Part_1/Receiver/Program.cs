@@ -50,12 +50,11 @@ namespace Receiver
 
             while (running)
             {
-                Console.WriteLine();
-                Console.WriteLine("========== MENU ==========");
                 Console.WriteLine("1. Subscribe to topic");
-                Console.WriteLine("2. View subscribed topics");
-                Console.WriteLine("3. View received messages");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("2. Unsubscribe from topic");
+                Console.WriteLine("3. View subscribed topics");
+                Console.WriteLine("4. View received messages");
+                Console.WriteLine("5. Exit");
                 Console.WriteLine("===========================");
                 Console.Write("Choose an option: ");
 
@@ -74,6 +73,16 @@ namespace Receiver
                         break;
 
                     case "2":
+                        Console.Write("Enter topic: ");
+                        string topicToUnsub = Console.ReadLine().ToLower();
+
+                        if (!string.IsNullOrWhiteSpace(topicToUnsub))
+                        {
+                            receiverSocket.Unsubscribe(topicToUnsub);
+                        }
+                        break;
+
+                    case "3":
                         Console.WriteLine();
                         Console.WriteLine("----- SUBSCRIBED TOPICS -----");
 
@@ -94,7 +103,7 @@ namespace Receiver
                         Console.WriteLine("------------------------------");
                         break;
 
-                    case "3":
+                    case "4":
                         Console.WriteLine();
                         Console.WriteLine("===== RECEIVED MESSAGES =====");
 
@@ -121,7 +130,7 @@ namespace Receiver
                         Console.WriteLine("=============================");
                         break;
 
-                    case "4":
+                    case "5":
                         running = false;
                         break;
 

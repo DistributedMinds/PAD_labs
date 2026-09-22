@@ -36,6 +36,21 @@ namespace Broker
 
                 Logger.Info($"Client {connectionInfo.ClientId} subscribed to topic: {topic}");
             }
+            else if (payloadString.StartsWith("unsubscribe#"))
+            {
+                if (string.IsNullOrEmpty(connectionInfo.ClientId))
+                {
+                    SendResponse(connectionInfo, "error#not authenticated");
+                    return;
+                }
+
+                string topic = payloadString.Substring("unsubscribe#".Length);
+
+                connectionInfo.Topics.Remove(topic);
+                PersistentStore.RemoveSubscription(connectionInfo.ClientId, topic);
+
+                Logger.Info($"Client {connectionInfo.ClientId} unsubscribed from topic: {topic}");
+            }
             else
             {
                 try
