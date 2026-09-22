@@ -44,9 +44,10 @@ def main():
         print()
         print("========== MENU ==========")
         print("1. Subscribe to topic")
-        print("2. View subscribed topics")
-        print("3. View received messages")
-        print("4. Exit")
+        print("2. Unsubscribe from topic")
+        print("3. View subscribed topics")
+        print("4. View received messages")
+        print("5. Exit")
         print("==========================")
 
         option = input("Choose an option: ")
@@ -58,6 +59,12 @@ def main():
                 receiver_socket.subscribe(topic)
 
         elif option == "2":
+            topic = input("Enter topic: ").lower()
+
+            if topic.strip():
+                receiver_socket.unsubscribe(topic)
+                
+        elif option == "3":
             print()
             print("----- SUBSCRIBED TOPICS -----")
 
@@ -71,7 +78,7 @@ def main():
 
             print("-----------------------------")
 
-        elif option == "3":
+        elif option == "4":
             print()
             print("===== RECEIVED MESSAGES ======")
 
@@ -89,7 +96,7 @@ def main():
 
             print("==============================")
 
-        elif option == "4":
+        elif option == "5":
             running = False
 
         else:

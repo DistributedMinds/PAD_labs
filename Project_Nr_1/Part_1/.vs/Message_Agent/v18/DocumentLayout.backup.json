@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_1\\sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|solutionrelative:sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_1\\broker\\payloadhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|solutionrelative:broker\\payloadhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_1\\broker\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11CE2C8E-DF4A-4AA1-81EE-DB26B19B91A9}|Broker\\Broker.csproj|solutionrelative:broker\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_1\\sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4ADBE678-C11A-459F-AC9B-852C64878B29}|Sender\\Sender.csproj|solutionrelative:sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,32 +22,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Sender\\Program.cs",
-              "RelativeDocumentMoniker": "Sender\\Program.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Sender\\Program.cs",
-              "RelativeToolTip": "Sender\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAkwBkAAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T16:02:36.358Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PayloadHandler.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
-              "RelativeDocumentMoniker": "Broker\\PayloadHandler.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
-              "RelativeToolTip": "Broker\\PayloadHandler.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAiwEkAAAB9AAAAAAAAAA==",
+              "Title": "PersistentStore.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PersistentStore.cs",
+              "RelativeDocumentMoniker": "Broker\\PersistentStore.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PersistentStore.cs",
+              "RelativeToolTip": "Broker\\PersistentStore.cs",
+              "ViewState": "AgIAAN0AAAAAAAAAAAAAAPcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-19T15:41:55.436Z",
+              "WhenOpened": "2026-09-22T14:03:30.238Z",
               "EditorCaption": ""
             },
             {
@@ -61,6 +52,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Sender\\Program.cs",
+              "RelativeDocumentMoniker": "Sender\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Sender\\Program.cs",
+              "RelativeToolTip": "Sender\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T16:02:36.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PayloadHandler.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
+              "RelativeDocumentMoniker": "Broker\\PayloadHandler.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_1\\Broker\\PayloadHandler.cs",
+              "RelativeToolTip": "Broker\\PayloadHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-19T15:41:55.436Z",
+              "EditorCaption": ""
             }
           ]
         },

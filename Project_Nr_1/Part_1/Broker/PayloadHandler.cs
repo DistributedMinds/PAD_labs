@@ -48,6 +48,7 @@ namespace Broker
 
                 connectionInfo.Topics.Remove(topic);
                 PersistentStore.RemoveSubscription(connectionInfo.ClientId, topic);
+                PersistentStore.RemovePendingDeliveries(connectionInfo.ClientId, topic);
 
                 Logger.Info($"Client {connectionInfo.ClientId} unsubscribed from topic: {topic}");
             }

@@ -233,6 +233,21 @@ public class PersistentStore
         return result;
     }
 
+    public static void RemovePendingDeliveries(string clientId, string topic)
+    {
+        lock (_lock)
+        {
+            using var cmd = _connection.CreateCommand();
+            cmd.CommandText =
+                @"DELETE FROM deliveries
+                  WHERE ClientId = $clientId AND Status = 0
+                  AND MessageId IN (SELECT Id FROM messages WHERE Topic = $topic);";
+            cmd.Parameters.AddWithValue("$clientId", clientId);
+            cmd.Parameters.AddWithValue("$topic", topic);
+            cmd.ExecuteNonQuery();
+        }
+    }
+
     public static void MarkDelivered(Guid messageId, string clientId)
     {
         lock (_lock)
