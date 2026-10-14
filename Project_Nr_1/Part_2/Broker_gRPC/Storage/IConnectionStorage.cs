@@ -6,6 +6,7 @@ namespace Broker_gRPC.Storage
     {
         void Add(Connection connection);
         void Remove(string address);
+        Connection? GetByClientId(string clientId);
         List<Connection> GetAllConnected();
         List<Connection> GetConnectionsByTopic(string topic);
 

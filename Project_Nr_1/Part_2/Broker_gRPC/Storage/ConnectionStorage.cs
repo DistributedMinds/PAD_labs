@@ -17,10 +17,8 @@ namespace Broker_gRPC.Storage
         {
             lock (_locker)
             {
-                if (!_connections.Any(x => x.Address == connection.Address))
-                {
-                    _connections.Add(connection);
-                }
+                _connections.RemoveAll(x => x.ClientId == connection.ClientId);
+                _connections.Add(connection);
             }
         }
 
@@ -29,6 +27,14 @@ namespace Broker_gRPC.Storage
             lock (_locker)
             {
                 _connections.RemoveAll(x => x.Address == address);
+            }
+        }
+
+        public Connection? GetByClientId(string clientId)
+        {
+            lock (_locker)
+            {
+                return _connections.FirstOrDefault(x => x.ClientId == clientId);
             }
         }
 
