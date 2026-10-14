@@ -1,19 +1,22 @@
 using System.Text.Json;
 
-namespace Message_Agent.Common;
-
-public class Settings
+namespace Message_Agent.Common
 {
-    public string BrokerUrl { get; set; } = "https://localhost:7132";
-
-    public static Settings Load()
+    public class Settings
     {
-        string path = Path.Combine(AppContext.BaseDirectory, "settings.json");
+        public string BrokerUrl { get; set; } = "https://127.0.0.1:7132";
 
-        if (!File.Exists(path))
+        public string SubscriberUrl { get; set; } = "https://127.0.0.1:0";
+
+        public static Settings Load()
         {
-            return new Settings();
+            string path = Path.Combine(AppContext.BaseDirectory, "settings.json");
+
+            if (!File.Exists(path))
+            {
+                return new Settings();
+            }
+            return JsonSerializer.Deserialize<Settings>(File.ReadAllText(path)) ?? new Settings();
         }
-        return JsonSerializer.Deserialize<Settings>(File.ReadAllText(path)) ?? new Settings();
     }
 }
