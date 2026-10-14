@@ -1,5 +1,6 @@
 
 using Broker_gRPC.Services;
+using Broker_gRPC.Storage;
 using Broker;
 using Message_Agent.Common;
 using Microsoft.Data.Sqlite;
@@ -13,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.WebHost.UseUrls(settings.BrokerUrl);
 builder.Services.AddGrpc();
 builder.Services.AddSingleton<IPersistentStore, PersistentStore>();
+builder.Services.AddSingleton<IConnectionStorage, ConnectionStorage>(); 
 builder.Services.AddHostedService<SenderWorker>();
 
 var app = builder.Build();
