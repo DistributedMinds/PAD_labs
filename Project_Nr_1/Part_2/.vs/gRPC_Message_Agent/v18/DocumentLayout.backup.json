@@ -1,0 +1,433 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\subscriberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\subscriberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|solutionrelative:receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\connectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\connectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\models\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\iconnectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\iconnectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\message_agent.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\message_agent.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\ipersistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\ipersistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\models\\payload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\models\\payload.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\persistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\notifierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\notifierservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\protos\\notify.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\protos\\notify.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\protos\\publish.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\protos\\publish.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\protos\\subscribe.proto||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\protos\\subscribe.proto||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\broker_grpc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\broker_grpc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2DDD123-1BD4-47B0-9E6D-28AB60BE61C5}|Sender\\Sender.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\sender\\sender.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E2DDD123-1BD4-47B0-9E6D-28AB60BE61C5}|Sender\\Sender.csproj|solutionrelative:sender\\sender.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\databaseinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E2DDD123-1BD4-47B0-9E6D-28AB60BE61C5}|Sender\\Sender.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2DDD123-1BD4-47B0-9E6D-28AB60BE61C5}|Sender\\Sender.csproj|solutionrelative:sender\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\brokerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\brokerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\publisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\publisherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PayLoad.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\PayLoad.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Models\\PayLoad.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\PayLoad.cs",
+              "RelativeToolTip": "Broker_gRPC\\Models\\PayLoad.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:39:00.005Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Receiver\\Program.cs",
+              "RelativeDocumentMoniker": "Receiver\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Receiver\\Program.cs",
+              "RelativeToolTip": "Receiver\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:30:50.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\Connection.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Models\\Connection.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\Connection.cs",
+              "RelativeToolTip": "Broker_gRPC\\Models\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:50:51.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubscriberService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SubscriberService.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\SubscriberService.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SubscriberService.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\SubscriberService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:16:20.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SenderWorker.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\SenderWorker.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\SenderWorker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T13:52:17.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
+              "RelativeToolTip": "Broker_gRPC\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T11:07:48.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IConnectionStorage.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:03:55.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConnectionStorage.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:05:50.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IPersistentStore.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IPersistentStore.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\IPersistentStore.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IPersistentStore.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\IPersistentStore.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAEwBAAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:37:59.591Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Message_Agent.Common.csproj",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Message_Agent.Common.csproj",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\Message_Agent.Common.csproj",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Message_Agent.Common.csproj",
+              "RelativeToolTip": "Message_Agent.Common\\Message_Agent.Common.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-14T12:22:32.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NotifierService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\NotifierService.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\NotifierService.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\NotifierService.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\NotifierService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T14:28:44.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PersistentStore.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\PersistentStore.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\PersistentStore.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\PersistentStore.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\PersistentStore.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAcwM0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:37:25.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "notify.proto",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\notify.proto",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\Protos\\notify.proto",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\notify.proto",
+              "RelativeToolTip": "Message_Agent.Common\\Protos\\notify.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2026-10-14T14:25:29.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "subscribe.proto",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\subscribe.proto",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\Protos\\subscribe.proto",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\subscribe.proto",
+              "RelativeToolTip": "Message_Agent.Common\\Protos\\subscribe.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2026-10-14T11:30:29.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "publish.proto",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\publish.proto",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\Protos\\publish.proto",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Protos\\publish.proto",
+              "RelativeToolTip": "Message_Agent.Common\\Protos\\publish.proto",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003853|",
+              "WhenOpened": "2026-10-14T11:30:33.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "settings.json",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\settings.json",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\settings.json",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\settings.json",
+              "RelativeToolTip": "Message_Agent.Common\\settings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-10-14T13:03:46.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Sender.csproj",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Sender\\Sender.csproj",
+              "RelativeDocumentMoniker": "Sender\\Sender.csproj",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Sender\\Sender.csproj",
+              "RelativeToolTip": "Sender\\Sender.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-14T12:58:44.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Settings.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Settings.cs",
+              "RelativeDocumentMoniker": "Message_Agent.Common\\Settings.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Settings.cs",
+              "RelativeToolTip": "Message_Agent.Common\\Settings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T13:28:52.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAAAUAAAAAAAAAAArwPsTAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-10-14T13:33:03.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Broker_gRPC.csproj",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Broker_gRPC.csproj",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Broker_gRPC.csproj",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Broker_gRPC.csproj",
+              "RelativeToolTip": "Broker_gRPC\\Broker_gRPC.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-14T13:35:59.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "DatabaseInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\DatabaseInitializer.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\DatabaseInitializer.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\DatabaseInitializer.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\DatabaseInitializer.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T11:31:05.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Sender\\Program.cs",
+              "RelativeDocumentMoniker": "Sender\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Sender\\Program.cs",
+              "RelativeToolTip": "Sender\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T11:08:00.716Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "BrokerService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\BrokerService.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\BrokerService.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\BrokerService.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\BrokerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T12:15:22.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "PublisherService.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\PublisherService.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\PublisherService.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\PublisherService.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\PublisherService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T11:30:52.558Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 78,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

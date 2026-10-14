@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Broker_gRPC\\Broker_gRPC.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Receiver\\Receiver.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
