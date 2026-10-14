@@ -6,9 +6,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
-    <Protobuf Include="../Message_Agent.Common/Protos/messaging.proto"
+    <Compile Include="..\Message_Agent.Common\Settings.cs" Link="Settings.cs" />
+    <Content Include="..\Message_Agent.Common\settings.json" Link="settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="../Message_Agent.Common/Protos/subscribe.proto"
             GrpcServices="Client" />
     <PackageReference Include="Google.Protobuf" Version="3.36.2" />
     <PackageReference Include="Grpc.Net.Client" Version="2.84.0" />

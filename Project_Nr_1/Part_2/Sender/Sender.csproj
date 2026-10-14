@@ -6,10 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
   <ItemGroup>
-    <Protobuf Include="../Message_Agent.Common/Protos/messaging.proto"
-            GrpcServices="Client" />
+    <Compile Include="..\Message_Agent.Common\Settings.cs" Link="Settings.cs" />
+    <Content Include="..\Message_Agent.Common\settings.json" Link="settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.36.2" />
     <PackageReference Include="Grpc.Net.Client" Version="2.84.0" />
     <PackageReference Include="Grpc.Tools" Version="2.84.0">
@@ -19,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Message_Agent.Common\Message_Agent.Common.csproj" />
+    <Protobuf Include="..\Message_Agent.Common\Protos\publish.proto"
+              GrpcServices="Client"
+              Link="Protos\publisher.proto" />
   </ItemGroup>
 
 </Project>

@@ -5,15 +5,22 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
+  <ItemGroup>
+    <Compile Include="..\Message_Agent.Common\Settings.cs" Link="Settings.cs" />
+    <Content Include="..\Message_Agent.Common\settings.json" Link="settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.64.0" />
-     <Protobuf Include="../Message_Agent.Common/Protos/messaging.proto"
-            GrpcServices="Server" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.13" />
+     <Protobuf Include="../Message_Agent.Common/Protos/publish.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Message_Agent.Common\Message_Agent.Common.csproj" />
   </ItemGroup>
+  
 
 </Project>
