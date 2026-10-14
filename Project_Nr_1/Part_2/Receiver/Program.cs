@@ -1,9 +1,8 @@
-﻿using Broker;
-using Broker_gRPC.Services;
-using Grpc.Core;
+﻿using Grpc.Core;
 using Grpc.Net.Client;
 using GrpcAgent;
 using Message_Agent.Common;
+using Receiver.Services;
 
 var settings = Settings.Load();
 var builder = WebApplication.CreateBuilder(args);
@@ -12,11 +11,11 @@ builder.WebHost.ConfigureKestrel(o =>
     o.ListenAnyIP(settings.ReceiverPort, l => l.UseHttps()));
 
 builder.Services.AddGrpc();
-builder.Services.AddSingleton<IPersistentStore, PersistentStore>();
+builder.Services.AddSingleton<ReceivedMessagesStore>();
 
 var app = builder.Build();
 
-app.MapGrpcService<NotifierService>();
+app.MapGrpcService<MessageReceiverService>();
 
 app.Start();
 
@@ -24,7 +23,12 @@ var channel = GrpcChannel.ForAddress(settings.BrokerUrl);
 var authClient = new Authenticator.AuthenticatorClient(channel);
 var subscriberClient = new Subscriber.SubscriberClient(channel);
 
-string receiverAddress = app.Urls.First();
+// Kestrel raportează adresa ca https://[::]:PORT, care nu poate fi apelată de broker.
+// Păstrăm portul real și punem host-ul din setări (implicit localhost).
+int receiverPort = new Uri(app.Urls.First()).Port;
+string receiverAddress = $"https://{settings.ReceiverHost}:{receiverPort}";
+
+var messagesStore = app.Services.GetRequiredService<ReceivedMessagesStore>();
 string? token = null;
 List<string> topics = new List<string>();
 
@@ -41,7 +45,7 @@ while (!authenticated)
 
     if (choice != "1" && choice != "2")
     {
-        Console.WriteLine("Opțiune invalidă. Alege 1 sau 2.");
+        Console.WriteLine("Optiune invalida. Alege 1 sau 2.");
         continue;
     }
 
@@ -61,7 +65,7 @@ while (!authenticated)
     }
     else
     {
-        Console.WriteLine($"Autentificare eșuată: {result.Message}. Încearcă din nou.");
+        Console.WriteLine($"Autentificare esuata: {result.Message}. Incearca din nou.");
     }
 }
 
@@ -136,6 +140,26 @@ while (running)
         case "4":
             Console.WriteLine();
             Console.WriteLine("===== RECEIVED MESSAGES =====");
+
+            var messages = messagesStore.GetAll();
+
+            if (messages.Count == 0)
+            {
+                Console.WriteLine("No messages received.");
+            }
+            else
+            {
+                foreach (var topicMessages in messages)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine($"[{topicMessages.Key}]");
+
+                    foreach (string message in topicMessages.Value)
+                    {
+                        Console.WriteLine($"- {message}");
+                    }
+                }
+            }
 
             Console.WriteLine("=============================");
             break;
