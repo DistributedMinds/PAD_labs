@@ -1,5 +1,6 @@
 
 using Broker_gRPC.Services;
+using Broker_gRPC.Logging;
 using Broker_gRPC.Storage;
 using Broker;
 using Message_Agent.Common;
@@ -11,6 +12,9 @@ using Broker_gRPC.Storage;
 
 var settings = Settings.Load();
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.AddProvider(new FileLoggerProvider(
+    Path.Combine(builder.Environment.ContentRootPath, "Logs", "broker.log")));
 
 builder.WebHost.UseUrls(settings.BrokerUrl);
 builder.Services.AddGrpc(o => o.Interceptors.Add<AuthInterceptor>());
@@ -25,5 +29,8 @@ var app = builder.Build();
 app.MapGrpcService<AuthService>();
 app.MapGrpcService<PublisherService>();
 app.MapGrpcService<SubscriberService>();
+
+app.Lifetime.ApplicationStarted.Register(() =>
+    app.Logger.LogInformation("Broker started."));
 
 app.Run(); 

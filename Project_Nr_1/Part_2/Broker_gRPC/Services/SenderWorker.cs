@@ -31,6 +31,7 @@ namespace Broker_gRPC.Services
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+            _logger.LogInformation("Worker started.");
             _timer = new Timer(DoSendWork, null, 0, TimeToWait);
             return Task.CompletedTask;
         }
