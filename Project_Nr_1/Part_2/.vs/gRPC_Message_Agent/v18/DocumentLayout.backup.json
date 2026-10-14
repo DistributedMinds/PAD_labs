@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\subscriberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\subscriberservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|solutionrelative:receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\connectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,20 +31,8 @@
       "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\storage\\iconnectionstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7ACD4E73-6623-4DCE-8E23-0AF3700D49D6}|Receiver\\Receiver.csproj|solutionrelative:receiver\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\message_agent.common\\message_agent.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{38665E8F-947B-42D8-81F6-A5E7E1C72F6B}|Message_Agent.Common\\Message_Agent.Common.csproj|solutionrelative:message_agent.common\\message_agent.common.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|solutionrelative:broker_grpc\\services\\senderworker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A4D5ACEA-6F5E-4CEB-B72E-C38F2C6DBC60}|Broker_gRPC\\Broker_gRPC.csproj|c:\\users\\victo\\desktop\\pad\\lab1\\pad_labs\\project_nr_1\\part_2\\broker_grpc\\storage\\ipersistentstore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -125,30 +125,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConnectionStorage.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
-              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
-              "RelativeToolTip": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T15:05:50.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IConnectionStorage.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
-              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
-              "RelativeToolTip": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T15:03:55.057Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 9,
               "Title": "PayLoad.cs",
               "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\PayLoad.cs",
@@ -161,19 +137,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Receiver\\Program.cs",
               "RelativeDocumentMoniker": "Receiver\\Program.cs",
               "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Receiver\\Program.cs",
               "RelativeToolTip": "Receiver\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T12:30:50.465Z"
+              "WhenOpened": "2026-10-14T12:30:50.465Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Connection.cs",
               "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Models\\Connection.cs",
               "RelativeDocumentMoniker": "Broker_gRPC\\Models\\Connection.cs",
@@ -185,16 +162,66 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "SubscriberService.cs",
               "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SubscriberService.cs",
               "RelativeDocumentMoniker": "Broker_gRPC\\Services\\SubscriberService.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SubscriberService.cs*",
-              "RelativeToolTip": "Broker_gRPC\\Services\\SubscriberService.cs*",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwB8AAAAJAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SubscriberService.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\SubscriberService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-14T12:16:20.405Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SenderWorker.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\SenderWorker.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
+              "RelativeToolTip": "Broker_gRPC\\Services\\SenderWorker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T13:52:17.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Program.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
+              "RelativeToolTip": "Broker_gRPC\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-05T11:07:48.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IConnectionStorage.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\IConnectionStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:03:55.057Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ConnectionStorage.cs",
+              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "RelativeDocumentMoniker": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "RelativeToolTip": "Broker_gRPC\\Storage\\ConnectionStorage.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-14T15:05:50.469Z"
             },
             {
               "$type": "Document",
@@ -211,18 +238,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "SenderWorker.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
-              "RelativeDocumentMoniker": "Broker_gRPC\\Services\\SenderWorker.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Services\\SenderWorker.cs",
-              "RelativeToolTip": "Broker_gRPC\\Services\\SenderWorker.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAkwCIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-14T13:52:17.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Message_Agent.Common.csproj",
               "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Message_Agent.Common\\Message_Agent.Common.csproj",
               "RelativeDocumentMoniker": "Message_Agent.Common\\Message_Agent.Common.csproj",
@@ -231,18 +246,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-10-14T12:22:32.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
-              "RelativeDocumentMoniker": "Broker_gRPC\\Program.cs",
-              "ToolTip": "C:\\Users\\victo\\Desktop\\PAD\\Lab1\\PAD_labs\\Project_Nr_1\\Part_2\\Broker_gRPC\\Program.cs",
-              "RelativeToolTip": "Broker_gRPC\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-05T11:07:48.866Z"
             },
             {
               "$type": "Document",

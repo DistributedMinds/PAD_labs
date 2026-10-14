@@ -59,6 +59,7 @@ nunit-*.xml
 .idea/
 bin/
 obj/
+.vs/
 
 # Persistent DataBase
 Data/
