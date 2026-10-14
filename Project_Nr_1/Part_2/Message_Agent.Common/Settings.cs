@@ -4,9 +4,10 @@ namespace Message_Agent.Common
 {
     public class Settings
     {
-        public string BrokerUrl { get; set; } = "https://127.0.0.1:7132";
-
-        public string SubscriberUrl { get; set; } = "https://127.0.0.1:0";
+        public string BrokerUrl { get; set; } = "https://localhost:7132";
+        
+        public string ReceiverHost { get; set; } = "localhost";
+        public int ReceiverPort { get; set; } = 0;
 
         public static Settings Load()
         {

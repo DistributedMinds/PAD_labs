@@ -7,7 +7,8 @@ using Message_Agent.Common;
 var settings = Settings.Load();
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseUrls(settings.SubscriberUrl);
+builder.WebHost.ConfigureKestrel(o =>
+    o.ListenAnyIP(settings.ReceiverPort, l => l.UseHttps()));
 
 builder.Services.AddGrpc();
 builder.Services.AddSingleton<IPersistentStore, PersistentStore>();
