@@ -20,6 +20,7 @@
 		<Protobuf Include="Protos\notify.proto" />
 		<Protobuf Include="Protos\publish.proto" GrpcServices="Both" />
 		<Protobuf Include="Protos\subscribe.proto" GrpcServices="Both" />
+		<Protobuf Include="Protos\auth.proto" GrpcServices="Both" />
 	</ItemGroup>
 
 </Project>
