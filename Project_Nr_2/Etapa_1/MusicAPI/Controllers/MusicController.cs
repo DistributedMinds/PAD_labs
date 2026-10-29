@@ -2,6 +2,7 @@ using Common.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MusicAPI.Repositories;
+using MusicAPI.Services;
 
 namespace MusicAPI.Controllers
 {
@@ -10,10 +11,13 @@ namespace MusicAPI.Controllers
     public class MusicController : ControllerBase
     {
         private readonly IMongoRepository<Song> _songRepository;
-        public MusicController(IMongoRepository<Song> songRepository)
+        private readonly ITimeService _timeService;
+        private readonly IGuidService _guidService;
+        public MusicController(IMongoRepository<Song> songRepository,  ITimeService timeService, IGuidService guidService)
         {
             _songRepository = songRepository;
-            
+            _timeService = timeService;
+            _guidService = guidService;
         }
         [HttpGet]
         public List<Song> ListAllSongs()
@@ -33,9 +37,8 @@ namespace MusicAPI.Controllers
 
         public IActionResult CreateSong(Song song)
         {
-            //de mutatat faza cu timpul in serviciu separat
-            song.LastChangedAt = DateTime.UtcNow;
-            var result = _songRepository.InsertRecord(song);
+            var songEntity = _timeService.SetRecordTime(song);
+            var result = _songRepository.InsertRecord(songEntity);
             
             return Ok(result);
         }
@@ -43,14 +46,13 @@ namespace MusicAPI.Controllers
         [HttpPut]
         public IActionResult Upsert(Song song)
         {
-            //Treb si verificarea asta de mutat in serviciu separat
-            if (song.Id == Guid.Empty)
+            if (_guidService.IsEmpty(song.Id))
             {
-                return BadRequest("Empty song id");
+                return BadRequest();
             }
-            song.LastChangedAt = DateTime.UtcNow;
-            _songRepository.UpsertRecord(song);
-            return Ok(song);
+            var songEntity = _timeService.SetRecordTime(song);
+            _songRepository.UpsertRecord(songEntity);
+            return Ok(songEntity);
             
         }
 

@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MusicAPI.Repositories;
+using MusicAPI.Services;
 using MusicAPI.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,8 @@ builder.Services.AddSingleton<IMongoDbSettings>(provider =>
     provider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
 
 builder.Services.AddScoped<IMongoRepository<Song>, MongoRepository<Song>>();
+builder.Services.AddScoped<ITimeService, TimeService>();
+builder.Services.AddScoped<IGuidService, GuidService>();
 
 var app = builder.Build();
 
