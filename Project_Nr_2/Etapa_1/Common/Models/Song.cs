@@ -6,4 +6,4 @@ public class Song : MongoDocument
         public List<String> Artists { get; set; }
         public decimal Budget { get; set; }
         public string Description { get; set; }
-}
+}       

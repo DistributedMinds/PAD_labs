@@ -27,21 +27,23 @@ public class MongoRepository<T> : IMongoRepository<T> where T : MongoDocument
 
    public T InsertRecord(T record)
    {
-      throw new NotImplementedException();
+      _collection.InsertOne(record);
+      return record;
    }
 
    public T GetRecordById(Guid id)
    {
-      throw new NotImplementedException();
+      var record = _collection.Find(x => x.Id == id).FirstOrDefault();
+      return record;
    }
 
    public void UpsertRecord(T record)
    {
-      throw new NotImplementedException();
+      _collection.ReplaceOne(x => x.Id == record.Id, record, new ReplaceOptions(){IsUpsert = true});
    }
 
    public void DeleteRecord(Guid id)
    {
-      throw new NotImplementedException();
+      _collection.DeleteOne(x => x.Id == id);
    }
 }
