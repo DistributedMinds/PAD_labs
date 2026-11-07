@@ -7,13 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicAPI", "MusicAPI\MusicA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{32878DB4-3B3C-4EDB-A0F7-D2E1FCACBEE6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proxy", "Proxy\Proxy.csproj", "{024E198D-D1BC-44DF-AACB-49DFB1AED6F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7A857C9E-C477-4202-ACBF-0AEFF086819A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +23,15 @@ Global
 		{32878DB4-3B3C-4EDB-A0F7-D2E1FCACBEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32878DB4-3B3C-4EDB-A0F7-D2E1FCACBEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32878DB4-3B3C-4EDB-A0F7-D2E1FCACBEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{024E198D-D1BC-44DF-AACB-49DFB1AED6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{024E198D-D1BC-44DF-AACB-49DFB1AED6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{024E198D-D1BC-44DF-AACB-49DFB1AED6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{024E198D-D1BC-44DF-AACB-49DFB1AED6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59630BEA-1E3A-48D5-9485-4C2FDED41883}
 	EndGlobalSection
 EndGlobal
