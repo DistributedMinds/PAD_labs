@@ -15,8 +15,14 @@ builder.Services.AddOpenApi();
 BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
 
+builder.Services.Configure<SyncServiceSettings>(builder.Configuration.GetSection("SyncServiceSettings"));
+
 builder.Services.AddSingleton<IMongoDbSettings>(provider =>
     provider.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+
+builder.Services.AddSingleton<ISyncServiceSettings>(provider =>
+    provider.GetRequiredService<IOptions<ISyncServiceSettings>>().Value);
+
 
 builder.Services.AddScoped<IMongoRepository<Song>, MongoRepository<Song>>();
 builder.Services.AddScoped<ITimeService, TimeService>();
