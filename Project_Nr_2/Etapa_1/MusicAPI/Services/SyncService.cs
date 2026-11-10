@@ -43,7 +43,7 @@ namespace MusicAPI.Services
             {
                 JsonData = JsonSerializer.Serialize(record),
                 SyncType = syncType,
-                ObjectType = objectType.Name,
+                ObjectType = objectType == typeof(Song) ? "music" : objectType.Name.ToLowerInvariant(),
                 Id = record.Id,
                 LastChangedAt = record.LastChangedAt,
                 Origin = _origin

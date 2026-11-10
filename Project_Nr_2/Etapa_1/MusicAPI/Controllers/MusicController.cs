@@ -11,11 +11,13 @@ namespace MusicAPI.Controllers
     public class MusicController : ControllerBase
     {
         private readonly IMongoRepository<Song> _songRepository;
+        private readonly ISyncService<Song> _songSyncService;
         private readonly ITimeService _timeService;
         private readonly IGuidService _guidService;
-        public MusicController(IMongoRepository<Song> songRepository,  ITimeService timeService, IGuidService guidService)
+        public MusicController(IMongoRepository<Song> songRepository, ISyncService<Song> songSyncService, ITimeService timeService, IGuidService guidService)
         {
             _songRepository = songRepository;
+            _songSyncService = songSyncService;
             _timeService = timeService;
             _guidService = guidService;
         }
@@ -39,7 +41,8 @@ namespace MusicAPI.Controllers
         {
             var songEntity = _timeService.SetRecordTime(song);
             var result = _songRepository.InsertRecord(songEntity);
-            
+
+            _songSyncService.Upsert(songEntity);
             return Ok(result);
         }
 
@@ -52,6 +55,9 @@ namespace MusicAPI.Controllers
             }
             var songEntity = _timeService.SetRecordTime(song);
             _songRepository.UpsertRecord(songEntity);
+
+            _songSyncService.Upsert(songEntity);
+
             return Ok(songEntity);
             
         }
@@ -66,8 +72,37 @@ namespace MusicAPI.Controllers
                 return BadRequest("Song not found");
             }
             _songRepository.DeleteRecord(Guid.Parse(id));
-            
+
+            song = _timeService.SetRecordTime(song);
+            _songSyncService.Delete(song);
+
             return Ok("Song deleted "+id);
+        }
+
+        [HttpPut("sync")]
+        public IActionResult UpsertSync(Song song)
+        {
+            var existingSong = _songRepository.GetRecordById(song.Id);
+
+            if(existingSong == null || song.LastChangedAt > existingSong.LastChangedAt)
+            {
+                _songRepository.UpsertRecord(song);
+            }
+
+            return Ok();
+        }
+
+        [HttpDelete("sync")]
+        public IActionResult DeleteSync(Song song)
+        {
+            var existingSong = _songRepository.GetRecordById(song.Id);
+
+            if (existingSong != null || song.LastChangedAt > existingSong.LastChangedAt)
+            {
+                _songRepository.DeleteRecord(song.Id);
+            }
+
+            return Ok();
         }
     }
 }
