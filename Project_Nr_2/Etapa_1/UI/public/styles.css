@@ -367,7 +367,7 @@ i[data-icon] svg { width: 100%; height: 100%; }
 .svc-icon i { font-size: 22px; }
 .svc-name { font-weight: 800; font-size: 16px; }
 .svc-url { color: var(--text-sub); font-size: 12.5px; font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; }
-.svc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.svc-stats { display: grid; grid-template-columns: 1fr; gap: 10px; }
 .stat { background: rgba(255,255,255,.04); border-radius: 6px; padding: 8px 10px; }
 .stat .k { color: var(--text-mute); font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .stat .v { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
@@ -400,6 +400,8 @@ table.grid tr:hover td { background: rgba(255,255,255,.03); }
 table.grid .mono { font-family: ui-monospace, 'JetBrains Mono', Menlo, monospace; font-size: 12px; }
 table.grid .empty-row td { text-align: center; padding: 26px; color: var(--text-mute); white-space: normal; }
 .check { color: var(--accent); }
+.queued { display: inline-flex; align-items: center; gap: 4px; color: var(--warn); font-size: 12.5px; }
+.queued i { font-size: 13px; }
 .cross { color: var(--text-mute); }
 .legend { display: flex; gap: 14px; flex-wrap: wrap; color: var(--text-sub); font-size: 12.5px; }
 .ago { color: var(--text-mute); font-size: 12px; }

@@ -158,6 +158,7 @@ const state = {
   liked: new Set(store.get('liked', [])),
   cluster: Object.fromEntries(SERVICES.map((k) => [k, { status: 'unknown' }])),
   clusterCheckedAt: null,
+  dbSnapshot: { node1: new Map(), node2: new Map() },
   activity: [],
   route: { name: 'home', arg: '' },
 };
@@ -255,6 +256,10 @@ function artistIndex(songs = state.songs) {
 
 const likedSongs = () => state.songs.filter((s) => state.liked.has(s.id));
 const pendingIds = () => new Set((state.cluster.sync.data || []).map((e) => String(e.id).toLowerCase()));
+const isQueuedDelete = (e) => String(e.syncType).toUpperCase() === 'DELETE';
+function queuedSong(e) {
+  try { return normalizeSong(JSON.parse(e.jsonData)); } catch { return normalizeSong({ id: e.id, name: '—' }); }
+}
 
 const SORTS = {
   recent: (a, b) => (parseDate(b.lastChangedAt)?.getTime() || 0) - (parseDate(a.lastChangedAt)?.getTime() || 0),
@@ -396,29 +401,46 @@ function tick() {
 
 async function probe(key) {
   const path = key === 'sync' ? '/sync' : '/api/music';
-  const started = performance.now();
   let saw502 = false;
   try {
     for (let attempt = 0; attempt < 3; attempt++) {
       const res = await fetch(`/upstream/${key}${path}`, { cache: 'no-store' });
-      const ms = performance.now() - started;
-      if (res.headers.has('x-ui-unreachable')) return { status: 'offline', ms, note: 'Nu rulează sau portul e închis.' };
+      if (res.headers.has('x-ui-unreachable')) return { status: 'offline', note: 'Nu rulează sau portul e închis.' };
       if (res.status === 502 && key === 'gateway') { saw502 = true; continue; }
       if (!res.ok) {
         const note = res.status === 404
           ? `Portul răspunde, dar nu ca ${targetLabel(key)} (HTTP 404). Alt proces ocupă portul?`
           : `HTTP ${res.status}`;
-        return { status: 'error', ms, note };
+        return { status: 'error', note };
       }
       let data;
-      try { data = await res.json(); } catch { return { status: 'error', ms, note: 'Răspunsul nu este JSON.' }; }
-      if (!Array.isArray(data)) return { status: 'error', ms, note: 'Răspuns neașteptat.' };
-      if (saw502) return { status: 'degraded', ms, data, note: 'Un nod din pool nu răspunde: Ocelot a dat 502, apoi a reușit pe următorul.' };
-      return { status: 'online', ms, data };
+      try { data = await res.json(); } catch { return { status: 'error', note: 'Răspunsul nu este JSON.' }; }
+      if (!Array.isArray(data)) return { status: 'error', note: 'Răspuns neașteptat.' };
+      if (saw502) return { status: 'degraded', data, note: 'Un nod din pool nu răspunde: Ocelot a dat 502, apoi a reușit pe următorul.' };
+      return { status: 'online', data };
     }
-    return { status: 'error', ms: performance.now() - started, note: 'Niciun nod MusicAPI disponibil (502).' };
+    return { status: 'error', note: 'Niciun nod MusicAPI disponibil (502).' };
   } catch {
-    return { status: 'offline', ms: null, note: 'Serverul UI nu răspunde.' };
+    return { status: 'offline', note: 'Serverul UI nu răspunde.' };
+  }
+}
+
+// Last version each node had in MongoDB, taken while the song was not queued in SyncNode. A node's
+// GET includes the queue, so while a change is queued this is the only view of its real data.
+function updateDbSnapshots() {
+  const queued = pendingIds();
+  for (const key of ['node1', 'node2']) {
+    const data = state.cluster[key].data;
+    if (!data) continue;
+    const prev = state.dbSnapshot[key];
+    const next = new Map();
+    for (const raw of data) {
+      const s = normalizeSong(raw);
+      const id = s.id.toLowerCase();
+      if (!queued.has(id)) next.set(id, s);
+    }
+    for (const id of queued) if (prev.has(id)) next.set(id, prev.get(id));
+    state.dbSnapshot[key] = next;
   }
 }
 
@@ -427,9 +449,14 @@ async function probeCluster() {
   if (probing) return;
   probing = true;
   const before = [...pendingIds()].sort().join();
-  const results = await Promise.all(SERVICES.map(probe));
-  SERVICES.forEach((k, i) => { state.cluster[k] = results[i]; });
+  // Nodes first, SyncNode after: anything a node returned from the queue is then either still queued
+  // or already flushed into MongoDB, so dbSnapshot never stores a queued change as saved.
+  const nodes = SERVICES.filter((k) => k !== 'sync');
+  const results = await Promise.all(nodes.map(probe));
+  nodes.forEach((k, i) => { state.cluster[k] = results[i]; });
+  state.cluster.sync = await probe('sync');
   state.clusterCheckedAt = Date.now();
+  updateDbSnapshots();
   probing = false;
 
   renderClusterMini();
@@ -902,42 +929,87 @@ const VIEWS = {
       <span class="node">MusicAPI :${portOf('node1')}</span><span class="node">MusicAPI :${portOf('node2')}</span>
       <span class="arrow">⇄</span><span class="node">SyncNode :${portOf('sync')}</span><span class="arrow">· fiecare nod are MongoDB propriu</span></div>`;
 
-    // Per-node comparison: what each MusicAPI returns (Mongo + pending overlay from SyncNode).
-    const n1 = c.node1.data;
-    const n2 = c.node2.data;
-    const rows = new Map();
-    for (const [side, data] of [['a', n1], ['b', n2]]) {
-      for (const raw of data || []) {
-        const s = normalizeSong(raw);
-        if (!rows.has(s.id)) rows.set(s.id, { id: s.id });
-        rows.get(s.id)[side] = s;
+    // MusicAPI merges SyncNode's queue into its GET response (read-after-write consistency), so a
+    // queued change is reported by both nodes before the other node has it in its own MongoDB.
+    // A queue entry's origin is the node that already wrote it; the other node is still waiting.
+    const pending = c.sync.data;
+    const queue = pending || [];
+    const pendingById = new Map(queue.map((e) => [String(e.id).toLowerCase(), e]));
+    const waitingSide = (e) => {
+      const port = String(e.origin || '').split(':').pop();
+      if (port === portOf('node1')) return 'b';
+      return port === portOf('node2') ? 'a' : null;
+    };
+    const nodeRole = (side) => {
+      const n = queue.filter((e) => waitingSide(e) === side).length;
+      return n ? `MusicAPI + MongoDB · ${n === 1 ? '1 modificare în coada SyncNode, încă neaplicată' : `${n} modificări în coada SyncNode, încă neaplicate`} în MongoDB` : 'MusicAPI + MongoDB';
+    };
+
+    // What each node really has in MongoDB: its GET response with the queued changes it is still
+    // waiting for undone, using the version captured before they were queued (dbSnapshot).
+    const nodeView = (key, side) => {
+      if (!c[key].data) return null;
+      const view = new Map(c[key].data.map((raw) => { const s = normalizeSong(raw); return [s.id.toLowerCase(), s]; }));
+      for (const e of queue) {
+        if (waitingSide(e) !== side) continue;
+        const id = String(e.id).toLowerCase();
+        const before = state.dbSnapshot[key].get(id);
+        if (isQueuedDelete(e)) view.set(id, before || queuedSong(e));
+        else if (before) view.set(id, before);
+        else view.delete(id);
       }
+      return view;
+    };
+    const v1 = nodeView('node1', 'a');
+    const v2 = nodeView('node2', 'b');
+
+    const rows = new Map();
+    for (const [side, view] of [['a', v1], ['b', v2]]) {
+      for (const [id, s] of view || []) {
+        if (!rows.has(id)) rows.set(id, { id, name: s.name });
+        rows.get(id)[side] = s;
+      }
+    }
+    // A queued delete from an unknown origin is hidden by both nodes; keep it visible.
+    for (const e of queue) {
+      const id = String(e.id).toLowerCase();
+      if (isQueuedDelete(e) && !rows.has(id)) rows.set(id, { id, name: queuedSong(e).name });
     }
     const same = (a, b) => a.name === b.name && a.description === b.description && a.budget === b.budget
       && a.artists.join('|') === b.artists.join('|')
       && Math.abs((parseDate(a.lastChangedAt)?.getTime() || 0) - (parseDate(b.lastChangedAt)?.getTime() || 0)) < 2;
-    const bothUp = n1 && n2;
+    const bothUp = v1 && v2;
+    const ORDER = { Diferă: 0, 'Doar pe #1': 1, 'Doar pe #2': 1, 'Se sincronizează': 2, 'Ștergere în curs': 2, 'Nod indisponibil': 3, Sincronizat: 4 };
     const cmp = [...rows.values()].map((r) => {
+      const p = pendingById.get(r.id);
+      const deleting = !!p && isQueuedDelete(p);
       let status;
       if (!bothUp) status = ['Nod indisponibil', ''];
+      else if (p) status = deleting ? ['Ștergere în curs', 'warn'] : ['Se sincronizează', 'blue'];
       else if (r.a && r.b) status = same(r.a, r.b) ? ['Sincronizat', 'green'] : ['Diferă', 'warn'];
       else status = [r.a ? 'Doar pe #1' : 'Doar pe #2', 'red'];
-      return { ...r, status, order: { Diferă: 0, 'Doar pe #1': 1, 'Doar pe #2': 1, 'Nod indisponibil': 2, Sincronizat: 3 }[status[0]] };
-    }).sort((x, y) => x.order - y.order || (x.a || x.b).name.localeCompare((y.a || y.b).name, 'ro'));
+      return { ...r, waiting: p ? waitingSide(p) : null, deleting, status, order: ORDER[status[0]] };
+    }).sort((x, y) => x.order - y.order || x.name.localeCompare(y.name, 'ro'));
     const synced = cmp.filter((r) => r.status[0] === 'Sincronizat').length;
-    const cell = (s) => (s ? `<span class="check">${icon('check')}</span> <span class="ago">${relTime(s.lastChangedAt)}</span>` : '<span class="cross">—</span>');
+    const queued = (text, title) => `<span class="queued" title="${esc(title)}">${icon('sync')} ${text}</span>`;
+    const cell = (r, side) => {
+      const s = r[side];
+      const value = s ? `<span class="check">${icon('check')}</span> <span class="ago">${relTime(s.lastChangedAt)}</span>` : '<span class="cross">—</span>';
+      if (r.waiting !== side) return value;
+      if (r.deleting) return `${value} ${queued('ștergere în coadă', 'MongoDB-ul acestui nod încă are melodia; o șterge la următoarea golire a cozii SyncNode (≤ 20 s).')}`;
+      return s
+        ? `${value} ${queued('modificare în coadă', 'MongoDB-ul acestui nod are încă versiunea veche; cea nouă ajunge la următoarea golire a cozii SyncNode (≤ 20 s).')}`
+        : `${value} ${queued('în coadă', 'Încă nu e în MongoDB-ul acestui nod; ajunge la următoarea golire a cozii SyncNode (≤ 20 s).')}`;
+    };
     const cmpRows = cmp.length
-      ? cmp.map((r) => `<tr><td class="main-cell">${esc((r.a || r.b).name)}</td><td>${cell(r.a)}</td><td>${cell(r.b)}</td>
+      ? cmp.map((r) => `<tr><td class="main-cell">${esc(r.name)}</td><td>${cell(r, 'a')}</td><td>${cell(r, 'b')}</td>
           <td><span class="badge ${r.status[1]}">${r.status[0]}</span></td></tr>`).join('')
-      : `<tr class="empty-row"><td colspan="4">${n1 || n2 ? 'Niciun nod nu are melodii.' : 'Niciun nod MusicAPI nu răspunde.'}</td></tr>`;
+      : `<tr class="empty-row"><td colspan="4">${v1 || v2 ? 'Niciun nod nu are melodii.' : 'Niciun nod MusicAPI nu răspunde.'}</td></tr>`;
 
-    const pending = c.sync.data;
-    const queueRows = pending && pending.length
-      ? pending.map((e) => {
-        let name = '—';
-        try { const d = JSON.parse(e.jsonData); name = d.Name ?? d.name ?? '—'; } catch { /* keep placeholder */ }
-        const del = String(e.syncType).toUpperCase() === 'DELETE';
-        return `<tr><td class="main-cell">${esc(name)}</td><td><span class="badge ${del ? 'red' : 'green'}">${esc(e.syncType)}</span></td>
+    const queueRows = queue.length
+      ? queue.map((e) => {
+        const del = isQueuedDelete(e);
+        return `<tr><td class="main-cell">${esc(queuedSong(e).name)}</td><td><span class="badge ${del ? 'red' : 'green'}">${esc(e.syncType)}</span></td>
           <td class="mono">${esc(e.origin)}</td><td><span class="ago" title="${esc(fullDate(e.lastChangedAt))}">${relTime(e.lastChangedAt)}</span></td></tr>`;
       }).join('')
       : `<tr class="empty-row"><td colspan="4">${pending ? 'Coada e goală — SyncNode a trimis toate modificările.' : esc(c.sync.note || 'SyncNode indisponibil.')}</td></tr>`;
@@ -962,14 +1034,14 @@ const VIEWS = {
         <div class="view-pad" style="position:relative;z-index:1;padding-top:24px">
           ${flow}
           <div class="topology">
-            ${card('gateway', 'globe', 'Ocelot · round-robin între noduri', [['Melodii', count('gateway')], ['Latență', fmtMs(c.gateway.ms)]])}
-            ${card('node1', 'database', 'MusicAPI + MongoDB', [['Melodii', count('node1')], ['Latență', fmtMs(c.node1.ms)]])}
-            ${card('node2', 'database', 'MusicAPI + MongoDB', [['Melodii', count('node2')], ['Latență', fmtMs(c.node2.ms)]])}
-            ${card('sync', 'sync', 'Propagă modificările la fiecare 20 s', [['În coadă', count('sync')], ['Latență', fmtMs(c.sync.ms)]])}
+            ${card('gateway', 'globe', 'Ocelot · round-robin între noduri', [['Melodii', count('gateway')]])}
+            ${card('node1', 'database', nodeRole('a'), [['Melodii', v1 ? v1.size : '—']])}
+            ${card('node2', 'database', nodeRole('b'), [['Melodii', v2 ? v2.size : '—']])}
+            ${card('sync', 'sync', 'Propagă modificările la fiecare 20 s', [['În coadă', count('sync')]])}
           </div>
           <div class="two-col">
             <section class="panel-card">
-              <div class="pc-head"><h3>Comparare noduri</h3><p>Ce returnează fiecare MusicAPI</p>
+              <div class="pc-head"><h3>Comparare noduri</h3><p>Ce returnează fiecare MusicAPI · ${queued('= modificare în coadă, încă neaplicată pe acel nod', 'Valorile arată ce are fiecare nod în MongoDB; modificarea ajunge la următoarea golire a cozii SyncNode')}</p>
                 <div class="right">${bothUp ? `<span class="badge ${synced === cmp.length ? 'green' : 'warn'}">${synced}/${cmp.length} sincronizate</span>` : ''}
                   <button class="icon-btn" data-action="probe" title="Verifică acum">${icon('refresh')}</button></div></div>
               <div class="table-wrap"><table class="grid"><thead><tr><th>Melodie</th><th>Nod #1</th><th>Nod #2</th><th>Stare</th></tr></thead><tbody>${cmpRows}</tbody></table></div>
