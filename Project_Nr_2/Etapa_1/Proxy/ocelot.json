@@ -18,10 +18,10 @@
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
       },
-      "FileCacheOptions": {
-        "TtlSeconds": 15,
-        "Region": "musicCacheRegion"
-      }
+      //"FileCacheOptions": {
+      //  "TtlSeconds": 15,
+      //  "Region": "musicCacheRegion"
+      //}
       },
       {
         "DownstreamPathTemplate": "/{url}",

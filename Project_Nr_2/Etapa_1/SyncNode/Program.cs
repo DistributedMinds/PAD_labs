@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 
 builder.Services.Configure<MusicAPISettings>(builder.Configuration.GetSection("MusicAPISettings"));
 
@@ -24,7 +25,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
-
+app.MapControllers();
 app.UseAuthorization();
 
 app.MapStaticAssets();

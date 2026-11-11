@@ -23,5 +23,12 @@ namespace Common.Utilities
             task.Wait();
             return task.Result;
         }
+
+        public static HttpResponseMessage Get(string url)
+        {
+            var task = _client.GetAsync(url);
+            task.Wait();
+            return task.Result;
+        }
     }
 }
