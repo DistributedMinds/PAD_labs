@@ -21,5 +21,17 @@ namespace SyncNode.Controllers
             _workJobService.Additem(entity);
             return Ok();
         }
+
+        [HttpGet("{id:guid}")]
+        public IActionResult GetPending(Guid id)
+        {
+            return _workJobService.TryGetPending(id, out var entity) ? Ok(entity) : NotFound();
+        }
+
+        [HttpGet]
+        public IActionResult ListAllPending()
+        {
+            return Ok(_workJobService.GetAllPending());
+        }
     }
 }

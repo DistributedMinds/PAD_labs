@@ -32,6 +32,16 @@ namespace SyncNode.Services
             }
         }
 
+        public bool TryGetPending(Guid id, out SyncEntity entity)
+        {
+            return documents.TryGetValue(id, out entity);
+        }
+
+        public List<SyncEntity> GetAllPending()
+        {
+            return documents.Values.ToList();
+        }
+
         Task IHostedService.StartAsync(CancellationToken cancellationToken)
         {
             _timer = new Timer(DoSendWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(20));
